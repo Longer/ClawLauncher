@@ -1,0 +1,146 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	/*overflow: hidden;*/
+	font-family: Arial;
+	color: white;
+	font-size: 16px;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+/*.grid{
+	clear: both;
+}
+
+body > .grid > .cell{
+	float: left;
+	min-width: 240px;
+	min-height: 240px;
+	background-color: #aaa;
+	border: 1px solid #ccc;
+}*/
+
+body > .cell{
+	position: absolute;
+	/*min-width: 200px;
+	min-height: 200px;*/
+	z-index: 1;
+}
+
+body > .cell > .header{
+	box-sizing: border-box;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	background-color: #aaa;
+	padding: 10px 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+body > .cell > .content{
+	position: absolute;
+	top: 37px;
+	bottom: 0px;
+	width: 100%;
+	overflow: auto;
+}
+
+#panel{
+	position: fixed;
+	background-color: rgba(4, 11, 33, 0.6);
+	border-top: 2px solid rgba(102, 102, 102, 0.5);
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	z-index: 20;
+}
+
+#panel > .debug_button{
+	width: 100px;
+	height: 100%;
+	border-right: 1px solid rgba(102, 102, 102, 0.3);
+	text-align: center;
+	background: url(../img/icon-refresh.png) no-repeat center center;
+	opacity: 0.7;
+
+	position: absolute;
+	left: 0;
+}
+
+#panel > .apps{
+	position: absolute;
+	left: 100px;
+	right: 100px;
+	height: 100%;
+	text-align: center;
+	padding: 0px 5px;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+#panel > .apps > .icon{
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	padding: 20px;
+}
+
+#panel > .button{
+	width: 100px;
+	height: 100%;
+	border-left: 1px solid rgba(102, 102, 102, 0.3);
+	text-align: center;
+	background: url(../img/icon-menu.png) no-repeat center center;
+	opacity: 0.7;
+
+	position: absolute;
+	right: 0;
+}
+
+#menu{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background-color: #1b222c;
+	padding: 10px;
+	overflow: auto;
+}
+
+#menu > .apps{
+	height: 300px;
+	overflow: auto;
+}
+
+#menu > .apps > .app{
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 5px 10px;
+}
+
+#menu > .apps > .app > .icon{
+	text-align: center;
+}
+
+#menu > .apps > .app > .name{
+	margin-top: 5px;
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
