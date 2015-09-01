@@ -6,6 +6,7 @@ import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.graphics.Color;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 
 import com.longerdev.launcher.MyJavaScriptInterface;
 
@@ -23,6 +24,13 @@ public class LauncherActivity extends Activity{
 		webSettings.setAllowFileAccessFromFileURLs(true);
 		webSettings.setAllowUniversalAccessFromFileURLs(true);
 
+		mainWebView.setLongClickable(true);
+		mainWebView.setOnLongClickListener(new OnLongClickListener(){
+			@Override
+			public boolean onLongClick(View v){
+				return true;
+			}
+		});
 		mainWebView.setBackgroundColor(Color.TRANSPARENT);
 		mainWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 		mainWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
