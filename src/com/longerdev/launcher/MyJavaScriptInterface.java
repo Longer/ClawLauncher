@@ -2,12 +2,15 @@ package com.longerdev.launcher;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.io.File;
 import java.io.ByteArrayOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;
+import java.io.FileInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import android.os.Environment;
 import android.content.Context;
 import android.content.Intent;
 import android.webkit.JavascriptInterface;
@@ -19,16 +22,21 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Bitmap;
 import android.util.Base64;
+import android.util.Log;
+
+import com.longerdev.launcher.Constants;
 
 public class MyJavaScriptInterface{
 	private WebView webView;
 	private Context context;
 	private PackageManager pm;
+	private boolean isDebuggable;
 
-	public MyJavaScriptInterface(WebView currentWebView, Context currentContext){
+	public MyJavaScriptInterface(WebView currentWebView, Context currentContext, boolean currentIsDebuggable){
 		webView = currentWebView;
 		context = currentContext;
 		pm = context.getPackageManager();
+		isDebuggable = currentIsDebuggable;
 	}
 
 	@JavascriptInterface
@@ -93,8 +101,17 @@ public class MyJavaScriptInterface{
 		String ret = "";
 
 		try{
-			//InputStream inputStream = context.openFileInput("config.json");
-			InputStream inputStream = context.getResources().openRawResource(R.raw.config);
+			File file;
+
+			if (isDebuggable && Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+				File path = Environment.getExternalStorageDirectory();
+				file = new File(path.getAbsolutePath() + "/ClawLauncher/" + Constants.CONFIG_FILE);
+			}
+			else{
+				file = context.getFileStreamPath(Constants.CONFIG_FILE);
+			}
+
+			InputStream inputStream = new FileInputStream(file);
 
 			if (inputStream != null){
 				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);

@@ -9,21 +9,7 @@ var widgets = {
 	test: WidgetTest,
 };
 
-var config = {
-	"panel": [
-		"org.mozilla.firefox",
-		"ru.kinopoisk",
-		"com.android.vending",
-		"com.android.settings"
-	],
-	"cells": [
-		{"type": "weather", "opts": {"id": 28440}, "x": 0, "y": 0, "w": 1, "h": 1},
-		{"type": "rss", "opts": {"url": "https://www.linux.org.ru/section-rss.jsp?section=1"}, "x": 1, "y": 0, "w": 1, "h": 2},
-		{"type": "rss", "opts": {"url": "http://www.opennet.ru/opennews/opennews_all.rss"}, "x": 2, "y": 0, "w": 2, "h": 2},
-		{"type": "test", "x": 0, "y": 1, "w": 1, "h": 1}
-	]
-};
-
+var config;
 var cells = [];
 var id_count = 0;
 
@@ -42,7 +28,7 @@ function menuBtnHandle(e){
 }
 
 if (isMobile()){
-	//config = JSON.parse(AndroidAPI.getConfig());
+	config = JSON.parse(AndroidAPI.getConfig());
 	menu_btn.ontouchend = menuBtnHandle;
 
 	var apps = JSON.parse(AndroidAPI.apps());
