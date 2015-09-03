@@ -56,6 +56,10 @@ body > .cell > .content{
 	overflow: auto;
 }
 
+.hide{
+	display: none;
+}
+
 #panel{
 	position: fixed;
 	background-color: rgba(4, 11, 33, 0.6);

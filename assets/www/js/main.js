@@ -10,8 +10,11 @@ var widgets = {
 };
 
 var config;
-var cells = [];
+var home_screens = [];
+var current_screen = 0;
 var id_count = 0;
+
+var hammer = new Hammer(document.body);
 
 var panel = document.getElementById("panel");
 panel.style.height = window.innerHeight/6 + 'px';
@@ -53,7 +56,6 @@ else{
 }
 
 
-
 window.onresize = function (){
 	viewport = {
 		width: window.innerWidth,
@@ -68,5 +70,21 @@ window.onresize = function (){
 	menu_apps.style.height = window.innerHeight - window.innerHeight/6 - 1 + 'px';
 };
 
-for (var i = 0; i < config.cells.length; i++)
-	cells.push(new Cell(config.cells[i]));
+for (var i = 0; i < config.screens.length; i++)
+	home_screens.push(new HomeScreen({cells: config.screens[i].cells}));
+home_screens[0].show();
+
+hammer.on("swipeleft swiperight", function (e){
+	var change = 0;
+
+	if (e.type === "swiperight" && current_screen > 0)
+		change = -1;
+	else if (e.type === "swipeleft" && current_screen < home_screens.length-1)
+		change = 1;
+
+	if (change != 0){
+		home_screens[current_screen].hide();
+		current_screen += change;
+		home_screens[current_screen].show();
+	}
+});

@@ -20,7 +20,7 @@ var Cell = function (params){
 	
 
 	self.elem.id = "cell" + self.id;
-	self.elem.className = "cell";
+	self.elem.className = "cell hide";
 	self.header.className = "header";
 	self.content.className = "content";
 
@@ -29,7 +29,15 @@ var Cell = function (params){
 		self.elem.style.top = Math.ceil(viewport.height/2*params.y) + 'px';
 		self.elem.style.width = Math.ceil(viewport.width/4*params.w) + 'px';
 		self.elem.style.height = Math.ceil(viewport.height/2*params.h) + 'px';
-	}
+	};
+
+	self.show = function (){
+		self.elem.classList.remove("hide");
+	};
+
+	self.hide = function (){
+		self.elem.classList.add("hide");
+	};
 
 	self.resize();
 
