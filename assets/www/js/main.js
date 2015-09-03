@@ -12,6 +12,7 @@ var widgets = {
 var config;
 var home_screens = [];
 var current_screen = 0;
+var current_state = "home";
 var id_count = 0;
 
 var hammer = new Hammer(document.body);
@@ -28,6 +29,7 @@ var menu_btn = document.getElementById('menu_btn')
 
 function menuBtnHandle(e){
 	menu.style.display = menu.style.display==='none'?'block':'none';
+	current_state = current_state === "home"?"menu":"home";
 }
 
 if (isMobile()){
@@ -75,6 +77,9 @@ for (var i = 0; i < config.screens.length; i++)
 home_screens[0].show();
 
 hammer.on("swipeleft swiperight", function (e){
+	if (current_state === "menu")
+		return;
+
 	var change = 0;
 
 	if (e.type === "swiperight" && current_screen > 0)
