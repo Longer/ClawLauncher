@@ -23,6 +23,7 @@ import com.longerdev.launcher.Constants;
 
 public class LauncherActivity extends Activity{
 	private boolean isDebuggable;
+	private WebView mainWebView;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -34,7 +35,7 @@ public class LauncherActivity extends Activity{
 
 		createConfig();
 
-		WebView mainWebView = (WebView) findViewById(R.id.webview);
+		mainWebView = (WebView) findViewById(R.id.webview);
 		WebSettings webSettings = mainWebView.getSettings();
 
 		webSettings.setJavaScriptEnabled(true);
@@ -61,7 +62,7 @@ public class LauncherActivity extends Activity{
 
 	@Override
 	public void onBackPressed(){
-
+		mainWebView.loadUrl("javascript:backPressed()");
 	}
 
 	private void createConfig(){

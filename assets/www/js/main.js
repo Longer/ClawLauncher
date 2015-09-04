@@ -27,14 +27,19 @@ menu_apps.style.height = window.innerHeight - window.innerHeight/6 - 10 + 'px';
 var menu = document.getElementById('menu');
 var menu_btn = document.getElementById('menu_btn')
 
-function menuBtnHandle(e){
+function backPressed(){
+	if (current_state === "menu")
+		toggleMenu();
+}
+
+function toggleMenu(){
 	menu.style.display = menu.style.display==='none'?'block':'none';
 	current_state = current_state === "home"?"menu":"home";
 }
 
 if (isMobile()){
 	config = JSON.parse(AndroidAPI.getConfig());
-	menu_btn.ontouchend = menuBtnHandle;
+	menu_btn.ontouchend = toggleMenu;
 
 	var apps = JSON.parse(AndroidAPI.apps());
 	var apps_list = "";
