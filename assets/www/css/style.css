@@ -13,6 +13,7 @@ body{
 a{
 	color: white;
 	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(50, 50, 128, 0.5);
 }
 
 /*.grid{
@@ -53,8 +54,13 @@ body > .cell > .content{
 	top: 37px;
 	bottom: 0px;
 	width: 100%;
+	overflow: hidden;
+}
+
+body > .cell > .content:hover{
 	overflow: auto;
 }
+
 
 .hide{
 	display: none;
@@ -91,6 +97,7 @@ body > .cell > .content{
 	text-align: center;
 	padding: 0px 5px;
 	overflow-x: auto;
+	overflow-y: hidden;
 	white-space: nowrap;
 }
 
@@ -99,6 +106,7 @@ body > .cell > .content{
 	width: 48px;
 	height: 48px;
 	padding: 20px;
+	-webkit-tap-highlight-color: rgba(50, 50, 128, 0.5);
 }
 
 #panel > .button{
@@ -135,6 +143,7 @@ body > .cell > .content{
 	width: 100px;
 	height: 100px;
 	margin: 5px 10px;
+	-webkit-tap-highlight-color: rgba(50, 50, 128, 0.5);
 }
 
 #menu > .apps > .app > .icon{
