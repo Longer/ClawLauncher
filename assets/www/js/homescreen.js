@@ -14,4 +14,9 @@ var HomeScreen = function (params){
 		for (var i = 0; i < self.cells.length; i++)
 			self.cells[i].hide();
 	};
+
+	self.resize = function (){
+		for (var i = 0; i < self.cells.length; i++)
+			self.cells[i].resize();
+	}
 };

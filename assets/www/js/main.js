@@ -59,7 +59,7 @@ if (isMobile()){
 	panel_apps.innerHTML = apps;
 }
 else{
-	menu_btn.onclick = menuBtnHandle;
+	menu_btn.onclick = toggleMenu;
 }
 
 
@@ -69,9 +69,8 @@ window.onresize = function (){
 		height: window.innerHeight - window.innerHeight/6
 	};
 
-	for (var i = 0; i < cells.length; i++){
-		cells[i].resize();
-	}
+	for (var i = 0; i < home_screens.length; i++)
+		home_screens[i].resize();
 
 	panel.style.height = window.innerHeight/6 + 'px';
 	menu_apps.style.height = window.innerHeight - window.innerHeight/6 - 1 + 'px';
