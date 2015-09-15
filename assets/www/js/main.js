@@ -45,8 +45,9 @@ if (isMobile()){
 	var apps_list = "";
 	for (var i = 0; i < apps.length; i++){
 		apps_list += "<div class='app' onclick='AndroidAPI.exec(\""+apps[i].name+"\")'>"
+			+"<div class='content'>"
 			+"<div class='icon'><img src='"+apps[i].icon+"' width='48' height='48'></div>"
-			+"<div class='name'>"+apps[i].label+"</div></div>"
+			+"<div class='name'>"+apps[i].label+"</div></div></div>"
 	}
 	menu_apps.innerHTML = apps_list;
 	

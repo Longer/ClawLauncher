@@ -129,7 +129,6 @@ body > .cell > .content:hover{
 	top: 0;
 	z-index: 10;
 	background-color: #1b222c;
-	padding: 10px;
 	overflow: auto;
 }
 
@@ -140,20 +139,40 @@ body > .cell > .content:hover{
 
 #menu > .apps > .app{
 	float: left;
-	width: 100px;
-	height: 100px;
-	margin: 5px 10px;
+	display: block;
+	width: 12.5%;
 	-webkit-tap-highlight-color: rgba(50, 50, 128, 0.5);
+
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
 }
 
-#menu > .apps > .app > .icon{
+#menu > .apps > .app:before{
+	content: '';
+	display: block;
+	padding-top: 100%;
+}
+
+#menu > .apps > .app > .content{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20%;
+	bottom: 20%;
+}
+
+#menu > .apps > .app > .content > .icon{
 	text-align: center;
 }
 
-#menu > .apps > .app > .name{
+#menu > .apps > .app > .content > .name{
 	margin-top: 5px;
+	padding: 0 5px;
 	font-size: 12px;
+	text-align: center;
+
 	overflow: hidden;
 	text-overflow: ellipsis;
-	text-align: center;
+	white-space: nowrap;
 }
