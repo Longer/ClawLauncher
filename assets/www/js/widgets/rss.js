@@ -52,7 +52,7 @@ WidgetRSS.prototype.reload = function (){
 						+"<br><br>";
 				}
 
-				self.setContent("<div style='padding: 5px;'>"+res+"</div>");
+				self.setContent(res);
 			}
 	}
 	xhr.open("GET", self.opts.url, true);

@@ -55,6 +55,7 @@ body > .cell > .content{
 	bottom: 0px;
 	width: 100%;
 	overflow: hidden;
+	padding: 5px;
 }
 
 body > .cell > .content:hover{

@@ -15,6 +15,6 @@ WidgetTest.prototype.constructor = WidgetTest;
 
 WidgetTest.prototype.reload = function (){
 	var self = this;
-	self.setContent("<div style='padding: 5px;'>"+self.count+"</div>");
+	self.setContent(self.count);
 	self.count++;
 };
