@@ -7,6 +7,7 @@ var widgets = {
 	weather: WidgetWeather,
 	rss: WidgetRSS,
 	test: WidgetTest,
+	myepisodes: WidgetMyEpisodes
 };
 
 var config;
