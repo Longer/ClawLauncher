@@ -28,6 +28,10 @@ var WidgetMyEpisodes = function (params){
 
 		return titles;
 	};
+
+	self.highlight = function (str){
+		return str.replace(/^\[ (.+) \]\[ (\d+)x(\d+) \]\[ (.+) \]\[ (.+) \]$/, "<b>$1 S$2E$3</b> - \"$4\", $5");
+	};
 };
 
 WidgetMyEpisodes.prototype = Object.create(Widget.prototype);
@@ -44,7 +48,7 @@ WidgetMyEpisodes.prototype.reload = function (){
 
 				var res = "";
 				for (var i = 0; i < titles.length; i++)
-					res += "<div>" + highlight(titles[i]) + "</div><br>";
+					res += "<div>" + self.highlight(titles[i]) + "</div><br>";
 
 				self.setContent(res);
 			}
@@ -52,7 +56,3 @@ WidgetMyEpisodes.prototype.reload = function (){
 	xhr.open("GET", "http://myepisodes.com/rss.php?feed="+self.opts.feed+"&showignored=1&onlyunacquired=1&uid="+self.opts.login+"&pwdmd5="+self.opts.pass, true);
 	xhr.send(null);
 };
-
-function highlight(str){
-	return str.replace(/^\[ (.+) \]\[ (\d+)x(\d+) \]\[ (.+) \]\[ (.+) \]$/, "<b>$1 S$2E$3</b> - \"$4\", $5");
-}
