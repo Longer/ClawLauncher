@@ -50,6 +50,7 @@ body > .cell > .header{
 }
 
 body > .cell > .content{
+	box-sizing: border-box;
 	position: absolute;
 	top: 37px;
 	bottom: 0px;

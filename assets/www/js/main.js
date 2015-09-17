@@ -23,7 +23,7 @@ panel.style.height = window.innerHeight/6 + 'px';
 var panel_apps = document.querySelector('#panel .apps');
 
 var menu_apps = document.querySelector('#menu .apps');
-menu_apps.style.height = window.innerHeight - window.innerHeight/6 - 10 + 'px';
+menu_apps.style.height = window.innerHeight - window.innerHeight/6 - 1 + 'px';
 
 var menu = document.getElementById('menu');
 var menu_btn = document.getElementById('menu_btn')
