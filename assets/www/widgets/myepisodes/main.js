@@ -4,7 +4,7 @@ var WidgetMyEpisodes = function (params){
 
 	self.setTitle("MyEpisodes");
 	self.setColor("#000000");
-	self.setIcon("widgets/myepisodes/icon32.png");
+	self.setIcon("widgets/myepisodes/icon.png");
 
 	self.updateTimer = setInterval(function (){
 		self.reload();
