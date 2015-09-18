@@ -4,6 +4,7 @@ var WidgetRSS = function (params){
 	
 	self.setTitle("RSS");
 	self.setColor("#d17707");
+	self.setIcon("widgets/rss/icon.png");
 
 	self.updateTimer = setInterval(function (){
 		self.reload();

@@ -47,12 +47,17 @@ body > .cell > .header{
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	font-size: 18px;
+}
+
+body > .cell > .header > img{
+	margin-right: 5px;
 }
 
 body > .cell > .content{
 	box-sizing: border-box;
 	position: absolute;
-	top: 37px;
+	top: 41px;
 	bottom: 0px;
 	width: 100%;
 	overflow: hidden;

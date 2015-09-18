@@ -3,6 +3,7 @@ var WidgetTest = function (params){
 	var self = this;
 	
 	self.setTitle("Test");
+	self.setIcon("widgets/test/icon.png");
 
 	self.updateTimer = setInterval(function (){
 		self.reload();

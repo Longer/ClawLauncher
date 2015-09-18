@@ -1,10 +1,10 @@
 var WidgetWeather = function (params){
 	Widget.call(this, params);
 	var self = this;
-	document.write(self.opts)
 	
 	self.setTitle("Weather");
 	self.setColor("#41b7b9");
+	self.setIcon("widgets/weather/icon.png");
 
 	self.updateTimer = setInterval(function (){
 		self.reload();

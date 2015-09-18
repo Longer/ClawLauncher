@@ -6,12 +6,22 @@ var Cell = function (params){
 
 	self.elem = document.createElement("div");
 	self.header = document.createElement("div");
+	self.icon = document.createElement("img");
+	self.title = document.createElement("span");
 	self.content = document.createElement("div");
 
-	self.header.innerHTML = "Header";
+	self.title.innerHTML = "Header";
+	self.icon.style.width = '16px';
+	self.icon.style.height = '16px';
 
 	if (self.type){
-		self.widget = new widgets[self.type]({elem: self.content, header: self.header, opts: params.opts});
+		self.widget = new widgets[self.type]({
+			elem: self.content,
+			header: self.header,
+			title: self.title,
+			icon: self.icon,
+			opts: params.opts
+		});
 		self.widget.reload();
 	}
 	else{
@@ -42,6 +52,8 @@ var Cell = function (params){
 	self.resize();
 
 	self.elem.appendChild(self.header);
+	self.header.appendChild(self.icon);
+	self.header.appendChild(self.title);
 	self.elem.appendChild(self.content);
 	document.body.appendChild(self.elem);
 };
